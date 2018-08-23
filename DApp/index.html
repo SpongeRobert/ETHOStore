@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>UniqLot | A unique ETH-1 lottery!</title>
+<!--        <title>UniqLot | A unique ETH-1 lottery!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="UniqLot is a most honest lottery! Chances are up to 9:1! Only 5% goes to a lottery organizer."/>
 	<meta name="yandex-verification" content="18469034214bbd4f" />
-
+-->
 	<link rel="apple-touch-icon" sizes="57x57" href="./images/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="./images/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="./images/favicon/apple-icon-72x72.png">
@@ -39,106 +39,74 @@
         <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-        <script src="./js/contract/abi.js" ></script>
-        <script src="./js/simpleCart.js" ></script>
+        <script type="text/javascript" src="js/simpleCart.js" ></script>
+        <script type="text/javascript" src="js/contract/abi.js" ></script>
         <script type="text/javascript" src="js/store_constants.js"></script>
-        <script type="text/javascript" src="js/cust_front.js"></script>
-        
-        
 
             
     </head>
+
     <body>
-	<div id="particles-js"></div>
-	<div id="page-wrapper">
-    <span class="pagetop">
-        <div class="bg-primary py-4">
-    <div class="container">
-        <div class="row">
-        <div class="col-4">
-            <div class="row">
-	<div class="col-1 align-self-center"><a target="_blanc" href="https://cryptolots.com"><img src="images/logo.png" id="logoimg"></a></div>
-	<div class="col-1 thin align-self-center" id="logo"><a style="text-decoration:none" id="navigation-title" target="_blanc" href="https://cryptolots.com"><b>Cryptocurrency</b><br/>lotteries</a></div>
-            </div>
-        </div>
-	<div class="col-8 text-right align-self-center"><a target="_blanc" href="https://ether1.org/"><img src="images/logo-eth1.png" id="logoimg"></a></div>
-        </div>
-    </div>
-        </div>
-        <nav class="navbar navbar-expand-md navbar-light bg-secondary p-0">
-    <div class="container">
-        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="nav navbar-nav mr-auto">
-            <li class="nav-item px-5">
-	<a class="nav-link text-dark text-center" href="/faq.html">What is it?</a>
-            </li>
-            <li class="nav-item px-5">
-	<a class="nav-link text-dark text-center" href="https://cryptolots.com">Lottery platform</a>
-            </li>
+        <div id="particles-js"></div>
+        <div id="page-wrapper">
+            <span class="pagetop">
+                <div class="bg-primary py-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="row">
+                                    <div class="col-1 align-self-center"><a target="_blanc" href="https://cryptolots.com"><img src="images/logo.png" id="logoimg"></a></div>
+                                    <div class="col-1 thin align-self-center" id="logo"><a style="text-decoration:none" id="navigation-title" target="_blanc" href="https://cryptolots.com"><b>Cryptocurrency</b><br/>lotteries</a></div>
+                                </div>
+                            </div>
+                            <div class="col-8 text-right align-self-center"><a target="_blanc" href="https://ether1.org/"><img src="images/logo-eth1.png" id="logoimg"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-md navbar-light bg-secondary p-0">
+                        <div class="container">
+                            <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="nav navbar-nav mr-auto">
+                                    <li class="nav-item px-5">
+	                                   <a class="nav-link text-dark text-center" href="/faq.html">What is it?</a>
+                                    </li>
+                                    <li class="nav-item px-5">
+	                                   <a class="nav-link text-dark text-center" href="https://cryptolots.com">Lottery platform</a>
+                                    </li>
 <!--            <li class="nav-item px-5">
 	<a class="nav-link text-dark text-center" target="_blanc" href="https://qlt.money">Become a shareholder</a>
             </li>
 -->
-	    <li class="nav-item px-5">
-	<a class="nav-link text-dark text-center" href="mailto:info@cryptolots.com">Contact us</a>
-            </li>
+                                    <li class="nav-item px-5">
+	                                   <a class="nav-link text-dark text-center" href="mailto:info@cryptolots.com">Contact us</a>
+                                    </li>
 
-        </ul>
-        </div>
-                <span class="navbar-text text-right" id="network"></span>
-    </div>
-        </nav>
-    </span>
-        <div class="row"> 
-            <div class="col-12 blancblock">
+                                </ul>
+                            </div>
+                            <span class="navbar-text text-right" id="network"></span>
+                        </div>
+                    </nav>
                 </div>
-        </div>
+            </span>
+            <div class="row"> 
+                <div class="col-12 blancblock">
+                </div>
+            </div>
 
-    <ul>
-	<li class="simpleCart_shelfItem">
-	    <h2 class="item_id">12</h2>
-	    <h2 class="item_name">Ether1 Short Sleeve Tee</h2>
-	    <img class="item_thumb" src="images/store/tshort.jpg" />
-	    <span class="item_price">$15</span>
-	    <select class="item_Size">
-		<option value="Small">Small</option>
-		<option value="Medium">Medium</option>
-		<option value="Large">Large</option>	
-	    </select>	
-	    
-	    <input type="checkbox" class="item_color" value="Blue"/><label>Blue</label>
-	    <input type="checkbox" class="item_color" value="Yellow"/><label>Yellow</label>
-	    <input type="checkbox" class="item_color" value="Red"/><label>Red</label>
-	    
-	    <input type="hidden" class="item_shipping" value="20" />	
-	    <input type="text" class="item_quantity" value="1" />
-	    <input type="button" class="item_add" value="add to cart" />
-	</li>
+    <main role="main" class="container">
 
-
-	<li class="simpleCart_shelfItem">
-	    <h2 class="item_name">Mug</h2>
-	    <img class="item_thumb" src="images/store/blackmug.jpg" />
-	    <span class="item_price">$10</span>
-	    <select class="item_Size">
-		<option value="Black">Black</option>
-		<option value="White">White</option>
-	    </select>		
-	    <input type="text" class="item_quantity" value="1" />
-	    <input type="button" class="item_add" value="add to cart" />
-	</li>
-    </ul>
+        <ul class="last_clickers1">
+        </ul>
       
-    <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
-    <br />
-    <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
-    <br />
-    <a href="javascript:;" class="simpleCart_empty">Empty cart</a>
-    <br />
+        <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+        <br />
+        <a href="javascript:;" class="simpleCart_checkout">Checkout</a>
+        <br />
+        <a href="javascript:;" class="simpleCart_empty">Empty cart</a>
+        <br />
 
     </main>
-</div>
     
 
     <footer class="footer">
@@ -193,5 +161,7 @@
 
     </body>
 
+        <script type="text/javascript" src="js/eth_magic.js"></script>
+        <script type="text/javascript" src="js/cust_front.js"></script>
 
 </html>
