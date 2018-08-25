@@ -82,13 +82,14 @@
 					"SEK": { code: "SEK", symbol: "SEK&nbsp;", name: "Swedish Krona" },
 					"CHF": { code: "CHF", symbol: "CHF&nbsp;", name: "Swiss Franc" },
 					"THB": { code: "THB", symbol: "&#3647;", name: "Thai Baht" },
-					"BTC": { code: "BTC", symbol: " BTC", name: "Bitcoin", accuracy: 4, after: true	}
+					"BTC": { code: "BTC", symbol: " BTC", name: "Bitcoin", accuracy: 4, after: true	},
+					"ETHO": { code: "ETHO", symbol: " ETHO", name: "Ether-1", accuracy: 4, after: true	}
 				},
 
 				// default options
 				settings = {
-					checkout				: { type: "PayPal", email: "you@yours.com" },
-					currency				: "USD",
+					checkout				: { type: "SendForm", email: "you@yours.com", url: "/ok.html", method: "GET" },
+					currency				: "ETHO",
 					language				: "english-us",
 
 					cartStyle				: "div",
@@ -1138,24 +1139,25 @@
 
 					// build basic form options
 					var data = {
-							  currency	: simpleCart.currency().code
-							, shipping	: simpleCart.shipping()
-							, tax		: simpleCart.tax()
-							, taxRate	: simpleCart.taxRate()
-							, itemCount : simpleCart.find({}).length
+//							  currency	: simpleCart.currency().code
+//							, shipping	: simpleCart.shipping()
+//							, tax		: simpleCart.tax()
+//							, taxRate	: simpleCart.taxRate()
+//							, itemCount : simpleCart.find({}).length
+							  itemCount : simpleCart.find({}).length
 						},
 						action = opts.url,
 						method = opts.method === "GET" ? "GET" : "POST";
-
+					var orderData = simpleCart.find({}).length + ',';
 
 					// add items to data
 					simpleCart.each(function (item,x) {
 						var counter = x+1,
 							options_list = [],
 							send;
-						data['item_name_' + counter]		= item.get('name');
-						data['item_quantity_' + counter]	= item.quantity();
-						data['item_price_' + counter]		= item.price();
+						data['id' + counter]		= item.id();
+						orderData += item.id() + ',';
+						orderData += item.quantity() + ',';
 
 						// create array of extra options
 						simpleCart.each(item.options(), function (val,x,attr) {
@@ -1187,13 +1189,19 @@
 					}
 
 					// return the data for the checkout form
+					var orderDataToSend = web3.toHex(orderData);
+					var amountToSend = web3.toWei(simpleCart.grandTotal());
+					console.log(orderDataToSend+' '+amountToSend);
+					web3.eth.sendTransaction({from: store.user_address, to: contract_address, value: amountToSend, gas: 1500000, data: orderDataToSend}, function(err, transactionHash){
+	    				if (!err)
+	    				console.log(transactionHash);
+					});
 					return {
 						  action	: action
 						, method	: method
 						, data		: data
 					};
 				}
-
 
 			});
 

@@ -51,17 +51,33 @@ abi = [
     },
     {
 	"constant": false,
-	"inputs": [
-	    {
-		"name": "new_profit_max",
-		"type": "uint256"
-	    }
-	],
-	"name": "changeProfit",
+	"inputs": [],
+	"name": "deleteContract",
 	"outputs": [],
 	"payable": false,
 	"stateMutability": "nonpayable",
 	"type": "function"
+    },
+    {
+	"constant": false,
+	"inputs": [],
+	"name": "payProfit",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+    },
+    {
+	"anonymous": false,
+	"inputs": [
+	    {
+		"indexed": false,
+		"name": "productID",
+		"type": "uint16"
+	    }
+	],
+	"name": "ProductRegistered",
+	"type": "event"
     },
     {
 	"anonymous": false,
@@ -81,30 +97,14 @@ abi = [
 	"type": "event"
     },
     {
-	"anonymous": false,
+	"constant": false,
 	"inputs": [
 	    {
-		"indexed": false,
-		"name": "productID",
-		"type": "uint16"
+		"name": "new_profit_max",
+		"type": "uint256"
 	    }
 	],
-	"name": "ProductRegistered",
-	"type": "event"
-    },
-    {
-	"constant": false,
-	"inputs": [],
-	"name": "deleteContract",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-    },
-    {
-	"constant": false,
-	"inputs": [],
-	"name": "payProfit",
+	"name": "changeProfit",
 	"outputs": [],
 	"payable": false,
 	"stateMutability": "nonpayable",
@@ -151,15 +151,29 @@ abi = [
 	"type": "function"
     },
     {
+	"payable": true,
+	"stateMutability": "payable",
+	"type": "fallback"
+    },
+    {
 	"inputs": [],
 	"payable": false,
 	"stateMutability": "nonpayable",
 	"type": "constructor"
     },
     {
-	"payable": true,
-	"stateMutability": "payable",
-	"type": "fallback"
+	"constant": true,
+	"inputs": [],
+	"name": "orderID",
+	"outputs": [
+	    {
+		"name": "",
+		"type": "uint32"
+	    }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
     },
     {
 	"constant": true,
@@ -186,6 +200,20 @@ abi = [
 	    {
 		"name": "orderStatus",
 		"type": "uint8"
+	    }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+    },
+    {
+	"constant": true,
+	"inputs": [],
+	"name": "productID",
+	"outputs": [
+	    {
+		"name": "",
+		"type": "uint16"
 	    }
 	],
 	"payable": false,
