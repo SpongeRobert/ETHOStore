@@ -915,7 +915,7 @@
 						);
 					});
 					simpleCart.$("body").append(form);
-					form.el.submit();
+//					form.el.submit();
 					form.remove();
 				}
 			});
@@ -1174,7 +1174,7 @@
 						// add the options to the description
 						data['item_options_' + counter] = options_list.join(", ");
 					});
-
+					orderData += store.user_email;
 
 					// check for return and success URLs in the options
 					if (opts.success) {
